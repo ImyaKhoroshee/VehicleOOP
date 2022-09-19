@@ -1,31 +1,4 @@
-// BMW G 310 R - мотоцикл
-// KAWASAKI NINJA 400 - мотоцикл
-// SUZUKI SV650 ABS (SV650A)- мотоцикл
-// YAMAHA XJ6 - мотоцикл
-// BMW F 800 GT- мотоцикл
-// HARLEY-DAVIDSON SUPERLOW- мотоцикл
-// Ford Fiesta - автомобиль
-// Kia Picanto- автомобиль
-// Infiniti QX60- автомобиль
-// Nissan Juke- автомобиль
-// Audi А3- автомобиль
-// Lexus ES 200- автомобиль
-// Honda Talon 1000X- автомобиль
-// RM 800 DUO - квадроцикл
-// Stels ATV 650 Guepard ST - квадроцикл
-// Yamaha YFZ450R SE - квадроцикл
-// CFMOTO CFORCE 600 S EPS - квадроцикл
-// Polaris Sportsman 570 - квадроцикл
-// SEA-DOO PERFORMANCE RXP-X 300 - гидроцикл (очень мощный двигатель)
-// YAMAHA FX CRUISER SVHO - гидроцикл (1-3 места)
-// SEA-DOO SPARK TRIXX 3UP- гидроцикл (мощный, легкий, трехместный)
-// GEN H-4 - вертолет (мини-вертолет без дверей без ветрового стекла, одноместный)
-// Air Scooter 2  - вертолет (сверхлегкий вертолет без дверей без ветрового стекла, одноместный)
-// Dynali H2S  - вертолет (стандартный, лёгкий двухместный вертолёт)
-// DF Helicopters DF334  - вертолет (стандартный, лёгкий двухместный вертолёт)
-
-
-public abstract class Vehicle {
+public abstract class Vehicle  implements InterfaceVehicle {
     
     protected String typeOfVehicle; // тип ТС
     protected String brand; // марка и модель
@@ -53,11 +26,18 @@ public abstract class Vehicle {
     protected int numberOfCylinders; 
     protected int yearOfIssue;
     
-
-    public Vehicle(String typeOfVehicle, String brand, int maxSpeed) { // этот конструктор б. доступен всем наследникам
+    public Vehicle(String typeOfVehicle, String brand, int maxSpeed, int quantityOfSeats) { 
         this.typeOfVehicle = typeOfVehicle;
-        this.maxSpeed = maxSpeed;
         this.brand = brand;
+        this.quantityOfSeats = quantityOfSeats;
+        this.maxSpeed = maxSpeed;
     }
-
+    public String info() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(typeOfVehicle).append(brand);
+        return sb.toString();
+    }
+    public String value() {
+        return " km/h";
+    }
 }
